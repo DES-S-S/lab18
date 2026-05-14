@@ -1,38 +1,181 @@
-.App {
-  text-align: center;
+/* Базові змінні для тем */
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #111111;
+  --accent-color: #000000;
+  --border-color: #111111;
+  --hover-bg: #e0e0e0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #ffffff;
+  --border-color: #e0e0e0;
+  --hover-bg: #2a2a2a;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Скидання та шрифти */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  font-family: 'Courier New', Courier, monospace; /* Технічний шрифт */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Строгий UI (Жодних border-radius) */
+.border-strict {
+  border: 2px solid var(--border-color);
+  border-radius: 0 !important;
+}
+
+.title-strict {
+  text-transform: uppercase;
+  border-bottom: 4px solid var(--border-color);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.btn-strict {
+  display: inline-block;
+  padding: 10px 15px;
+  background: transparent;
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid var(--border-color);
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.btn-strict:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Layout */
+.app-container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+}
+
+.header nav {
+  display: flex;
+  gap: 15px;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 8px 12px;
+  border: 2px solid transparent;
+}
+
+.header nav a.active-link, .header nav a:hover {
+  border: 2px solid var(--border-color);
+}
+
+.theme-btn {
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.content {
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socials a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.socials a:hover {
+  background: var(--hover-bg);
+}
+
+/* Утиліти та сітки */
+.mt-20 { margin-top: 20px; }
+.p-15 { padding: 15px; }
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.weather-item {
+  padding: 15px;
+  background: var(--hover-bg);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.timeline-item {
+  padding: 20px;
+  border-left: 6px solid var(--border-color);
+}
+
+blockquote {
+  padding: 20px;
+  font-style: italic;
+  font-size: 1.2rem;
+  background: var(--hover-bg);
 }
