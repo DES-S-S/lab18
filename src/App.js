@@ -18,7 +18,7 @@ function App() {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
   return (
-    <Router>
+    <Router basename="/lab18">
       <div className="app-container">
         <Header toggleTheme={toggleTheme} theme={theme} />
         <main className="content">
